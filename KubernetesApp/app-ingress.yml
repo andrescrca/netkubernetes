@@ -3,17 +3,10 @@ kind: Ingress
 metadata:
   name: app-ingress
   namespace: app
-  annotations:
-    cert-manager.io/cluster-issuer: letsencrypt
 spec:
-  tls: 
-  - hosts:
-    - app.vaxidreztech.com
-    - frontend.vaxidreztech.com
-    secretName: testsecret-tls
   ingressClassName: nginx
   rules:
-  - host: app.vaxidreztech.com
+  - host: <Host>
     http:
       paths:
       - pathType: Prefix
@@ -21,15 +14,5 @@ spec:
         backend:
           service:
             name: app-service
-            port:
-              number: 80
-  - host: frontend.vaxidreztech.com
-    http:
-      paths:
-      - pathType: Prefix
-        path: /
-        backend:
-          service:
-            name: angular-inmueble-service
             port:
               number: 80
