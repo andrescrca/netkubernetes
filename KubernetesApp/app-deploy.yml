@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: app-api
-        image: vaxidrez/net-sql-vaxi:v1.0
+        image: andrescrca/net-sql-vaxi:v1.0
         ports:
           - containerPort: 5000
         env:
