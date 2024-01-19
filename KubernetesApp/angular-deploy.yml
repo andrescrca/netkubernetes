@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: angular-deploy
+  namespace: app
+spec:
+  selector:
+    matchLabels:
+      app: inmueble-app
+  template:
+    metadata:
+      namespace: app
+      labels:
+        app: inmueble-app
+    spec:
+      containers:
+      - name: angular-inmueble-app
+        image: vaxidrez/angular-kubernetes-vaxi:v3.0
+        ports:
+        - containerPort: 80
